@@ -1,0 +1,12 @@
+<view class="wapper">
+  <view class="logo">
+    <image src="../imgs/logo.png"></image>
+  </view>
+  <text class="bigTitle">酷丁鱼在线课堂</text>
+  <image class="title" src="../imgs/biaoyu.png"></image>
+  <button class="wxBtn" bindgetuserinfo="getUser" open-type="getUserInfo">
+    <image src="../imgs/login.png"></image>
+  </button>
+  <button class="phoneBtn">手机号码登录</button>
+  <text class="last">Copyright © 2019 酷丁鱼在线课堂 </text>
+</view>

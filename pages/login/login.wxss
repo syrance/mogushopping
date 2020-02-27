@@ -1,0 +1,66 @@
+page {
+  background-color: #f8f8f8;
+}
+
+.wapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 212rpx;
+  height: 212rpx;
+  background-color: #fff;
+  margin: 179rpx 0 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo image {
+  width: 129rpx;
+  height: 136rpx;
+}
+
+.bigTitle {
+  width: 336rpx;
+  height: 66rpx;
+  font-size: 48rpx;
+  font-family: PingFang SC;
+  font-weight: 800;
+  line-height: 66rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+.title {
+  width:168rpx;
+  height: 34rpx;
+  margin:10px 0 314rpx
+}
+
+.wxBtn {
+  width: 568rpx;
+  height: 100rpx;
+}
+.wxBtn image{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.phoneBtn {
+  width: 180rpx;
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 232rpx;
+}
+
+.last {
+  width: 320rpx;
+  height: 28rpx;
+  font-size: 20rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 28rpx;
+  color: rgba(168, 168, 168, 1);
+}
