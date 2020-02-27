@@ -9,14 +9,35 @@ Page({
   },
   //获取用户信息
   getUser(res){
-    console.log(res)
+    let info = res.detail
+    console.log(info)
     if(!res.detail.userInfo){
       wx.showToast({
         title: '登录失败，请授权',
       })
     }
     wx.login({
-      
+      success(loginRes){
+        console.log(loginRes)
+        wx.request({
+          url: 'http://localhost:3000/api/',
+          method:'POST',
+          data:{
+            code: loginRes.code,
+            nickname: info.userInfo.nickname,
+            avatar: info.userInfo.avatarUrl
+          },
+          success(res){
+            console.log(res)
+            wx.showToast({
+              title: '登录成功',
+              success(){
+                
+              }
+            })
+          }
+        })
+      }
     })
   },
   /**
