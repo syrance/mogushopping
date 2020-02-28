@@ -1,4 +1,5 @@
 // pages/login/login.js
+import request from '../../utils/request.js'
 Page({
 
   /**
@@ -8,32 +9,38 @@ Page({
 
   },
   //获取用户信息
-  getUser(res){
+  getUser(res) {
     let info = res.detail
     console.log(info)
-    if(!res.detail.userInfo){
+    if (!res.detail.userInfo) {
       wx.showToast({
         title: '登录失败，请授权',
+        icon:'none'
       })
+      return;
     }
+    //获取微信账号的唯一标识
     wx.login({
-      success(loginRes){
+      async success(loginRes) {
         console.log(loginRes)
-        wx.request({
-          url: 'http://localhost:3000/api/',
-          method:'POST',
-          data:{
+        //使用封装好的方法
+        let data = await request({
+          url: '/user/wxlogin',
+          method: 'POST',
+          data: {
             code: loginRes.code,
-            nickname: info.userInfo.nickname,
+            nickname: info.userInfo.nickName,
             avatar: info.userInfo.avatarUrl
           },
-          success(res){
-            console.log(res)
-            wx.showToast({
-              title: '登录成功',
-              success(){
-                
-              }
+        })
+        //保存token
+        wx.setStorageSync('token', data.token)
+        wx.showToast({
+          title: '登录成功',
+          icon:'none',
+          success(){
+            wx.navigateTo({
+              url: '/pages/home/home',
             })
           }
         })
@@ -44,7 +51,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+
   },
 
   /**
